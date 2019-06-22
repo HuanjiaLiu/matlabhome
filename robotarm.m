@@ -17,14 +17,20 @@ length_y = sqrt(100^2-length./4)
 length_x = sqrt(length./4)
 final_point = []
 plot3([0 0],[0,0],[100,0],"g")
+hold on
 for i=1:(numel(length))
+    plot3(x,z,y,"b")
+    hold on
+    plot3([0 0],[0,0],[100,0],"g")
+    hold on
     line1 = cat(1,[length_x(i) length_y(i) height(i)],[0 0 height(i)])
     line2 = cat(1,[length_x(i) length_y(i) height(i)],[length_x(i).*2 0 height(i)])
     plot3(line1(:,1),line1(:,2),line1(:,3),"r")
-
+    hold on
     plot3(line2(:,1),line2(:,2),line2(:,3),"y")
+    hold on
     pause(.05)
-   
+    hold off
 
 end
 hold off
